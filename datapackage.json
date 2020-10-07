@@ -1,0 +1,341 @@
+{
+  "@context": "http://schemas.frictionlessdata.io/fiscal-data-package.jsonld",
+  "author": "yakun li <liyakun127@gmail.com>",
+  "bytes": 270003664,
+  "cityCode": "Bonn",
+  "count_of_rows": 2069193,
+  "countryCode": "DE",
+  "description": "Budget data of Bonn city in year 2017.",
+  "fiscalPeriod": {
+    "end": "2017-12-31",
+    "start": "2017-01-01"
+  },
+  "hash": "a76b14bc63f4e43e20229a653619df1e",
+  "model": {
+    "dimensions": {
+      "budget-line-id": {
+        "attributes": {
+          "id": {
+            "source": "id",
+            "title": "ID"
+          }
+        },
+        "dimensionType": "fact",
+        "primaryKey": [
+          "id"
+        ]
+      },
+      "date": {
+        "attributes": {
+          "jahr": {
+            "source": "jahr",
+            "title": "Jahr"
+          }
+        },
+        "dimensionType": "datetime",
+        "primaryKey": [
+          "jahr"
+        ]
+      },
+      "direction": {
+        "attributes": {
+          "budget_richtung": {
+            "source": "budget_richtung",
+            "title": "Budget_Richtung"
+          }
+        },
+        "dimensionType": "other",
+        "primaryKey": [
+          "budget_richtung"
+        ]
+      },
+      "functional-classification": {
+        "attributes": {
+          "bezeichnung": {
+            "parent": "kostenart",
+            "source": "bezeichnung",
+            "title": "Bezeichnung"
+          },
+          "kostenart": {
+            "parent": "produktgruppe",
+            "source": "kostenart",
+            "title": "Kostenart"
+          },
+          "produktbereich": {
+            "source": "produktbereich",
+            "title": "Produktbereich"
+          },
+          "produktgruppe": {
+            "parent": "produktbereich",
+            "source": "produktgruppe",
+            "title": "Produktgruppe"
+          },
+          "text": {
+            "parent": "bezeichnung",
+            "source": "text",
+            "title": "Text"
+          }
+        },
+        "classificationType": "functional",
+        "dimensionType": "classification",
+        "primaryKey": [
+          "produktbereich",
+          "produktgruppe",
+          "kostenart",
+          "bezeichnung",
+          "text"
+        ]
+      }
+    },
+    "measures": {
+      "betrag": {
+        "source": "betrag",
+        "title": "Betrag"
+      }
+    }
+  },
+  "name": "bonn2017slim2",
+  "owner": "5537104a902b0847bb7b474225eced5a",
+  "profile": "data-package",
+  "profiles": {
+    "fiscal": "*",
+    "tabular": "*"
+  },
+  "promise": {},
+  "regionCode": "eu",
+  "resources": [
+    {
+      "bytes": 202502739,
+      "count_of_rows": 1241514,
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmpd7nikfun/final/data/openbudget_bonn_plan_2017_slim.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "3e9323bee9c5b928b6ccf7ec4d414387",
+      "mediatype": "text/csv",
+      "name": "openbudget_bonn_plan_2017_slim",
+      "path": "data/openbudget_bonn_plan_2017_slim.csv",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "bezeichnung",
+            "osType": "functional-classification:generic:level4:code:full",
+            "slug": "bezeichnung",
+            "title": "Bezeichnung",
+            "type": "string"
+          },
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "text",
+            "osType": "functional-classification:generic:level5:code:full",
+            "slug": "text",
+            "title": "Text",
+            "type": "string"
+          },
+          {
+            "conceptType": "date",
+            "format": "default",
+            "name": "jahr",
+            "osType": "date:fiscal-year",
+            "slug": "jahr",
+            "title": "Jahr",
+            "type": "integer"
+          },
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "produktbereich",
+            "osType": "functional-classification:generic:level1:code",
+            "slug": "produktbereich",
+            "title": "Produktbereich",
+            "type": "string"
+          },
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "produktgruppe",
+            "osType": "functional-classification:generic:level2:code:full",
+            "slug": "produktgruppe",
+            "title": "Produktgruppe",
+            "type": "string"
+          },
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "kostenart",
+            "osType": "functional-classification:generic:level3:code:full",
+            "slug": "kostenart",
+            "title": "Kostenart",
+            "type": "string"
+          },
+          {
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "betrag",
+            "osType": "value",
+            "slug": "betrag",
+            "title": "Betrag",
+            "type": "number"
+          },
+          {
+            "conceptType": "direction",
+            "format": "default",
+            "name": "budget_richtung",
+            "osType": "direction",
+            "slug": "budget_richtung",
+            "title": "Budget_Richtung",
+            "type": "string"
+          },
+          {
+            "conceptType": "budget-line-id",
+            "format": "default",
+            "name": "id",
+            "osType": "budget-line-id",
+            "slug": "id",
+            "title": "ID",
+            "type": "string"
+          }
+        ],
+        "primaryKey": [
+          "bezeichnung",
+          "text",
+          "jahr",
+          "produktbereich",
+          "produktgruppe",
+          "kostenart",
+          "budget_richtung",
+          "id"
+        ]
+      }
+    },
+    {
+      "bytes": 135001826,
+      "count_of_rows": 827676,
+      "dialect": {
+        "delimiter": ",",
+        "doubleQuote": true,
+        "lineTerminator": "\r\n",
+        "quoteChar": "\"",
+        "skipInitialSpace": false
+      },
+      "dpp:streamedFrom": "/tmp/tmpd7nikfun/final/data/openbudget_bonn_plan_2017_slim__2017.csv",
+      "encoding": "utf-8",
+      "format": "csv",
+      "hash": "3e9323bee9c5b928b6ccf7ec4d414387",
+      "mediatype": "text/csv",
+      "name": "openbudget_bonn_plan_2017_slim__2017",
+      "path": "data/openbudget_bonn_plan_2017_slim__2017.csv",
+      "profile": "data-resource",
+      "schema": {
+        "fields": [
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "bezeichnung",
+            "osType": "functional-classification:generic:level4:code:full",
+            "slug": "bezeichnung",
+            "title": "Bezeichnung",
+            "type": "string"
+          },
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "text",
+            "osType": "functional-classification:generic:level5:code:full",
+            "slug": "text",
+            "title": "Text",
+            "type": "string"
+          },
+          {
+            "conceptType": "date",
+            "format": "default",
+            "name": "jahr",
+            "osType": "date:fiscal-year",
+            "slug": "jahr",
+            "title": "Jahr",
+            "type": "integer"
+          },
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "produktbereich",
+            "osType": "functional-classification:generic:level1:code",
+            "slug": "produktbereich",
+            "title": "Produktbereich",
+            "type": "string"
+          },
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "produktgruppe",
+            "osType": "functional-classification:generic:level2:code:full",
+            "slug": "produktgruppe",
+            "title": "Produktgruppe",
+            "type": "string"
+          },
+          {
+            "conceptType": "functional-classification",
+            "format": "default",
+            "name": "kostenart",
+            "osType": "functional-classification:generic:level3:code:full",
+            "slug": "kostenart",
+            "title": "Kostenart",
+            "type": "string"
+          },
+          {
+            "conceptType": "value",
+            "decimalChar": ".",
+            "format": "default",
+            "groupChar": "",
+            "name": "betrag",
+            "osType": "value",
+            "slug": "betrag",
+            "title": "Betrag",
+            "type": "number"
+          },
+          {
+            "conceptType": "direction",
+            "format": "default",
+            "name": "budget_richtung",
+            "osType": "direction",
+            "slug": "budget_richtung",
+            "title": "Budget_Richtung",
+            "type": "string"
+          },
+          {
+            "conceptType": "budget-line-id",
+            "format": "default",
+            "name": "id",
+            "osType": "budget-line-id",
+            "slug": "id",
+            "title": "ID",
+            "type": "string"
+          }
+        ],
+        "primaryKey": [
+          "bezeichnung",
+          "text",
+          "jahr",
+          "produktbereich",
+          "produktgruppe",
+          "kostenart",
+          "budget_richtung",
+          "id"
+        ]
+      }
+    }
+  ],
+  "title": "Bonn 2017"
+}
