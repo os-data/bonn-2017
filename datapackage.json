@@ -236,7 +236,7 @@
       "hash": "3e9323bee9c5b928b6ccf7ec4d414387",
       "mediatype": "text/csv",
       "name": "openbudget_bonn_plan_2017_slim__2017",
-      "path": "https://storage.openspending.org/openbudget_bonn_plan_2017_slim__2017.csv",
+      "path": "https://storage.openspending.org/openbudget_bonn_plan_2017_slim.csv",
       "profile": "data-resource",
       "schema": {
         "fields": [
